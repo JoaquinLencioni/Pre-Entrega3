@@ -1,0 +1,39 @@
+{% extends "app_coder/padre.html"%}
+{%load static%}
+
+{%block contenidoquecambia %}
+<br>
+<br>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Agregar hotel</title>
+</head>
+<body>
+    {% if miformulario2.errors %} 
+    
+    <p style="color: red;"> Estan mal los datos, revisalos</p>
+    
+    {% endif %}
+    <center>
+        <h3> Ingresá los datos del hotel que reservaste</h3>
+    <div class="form-container">
+    <form action="" method="post">{% csrf_token %}
+        <!-- Aca esta la magia de Django-->
+        <table>
+
+            {{ miformulario2.as_table }}
+
+        </table>
+
+        <input type="submit" value="Enviar">
+        
+     </form>   
+     <div>
+     </center>
+</html>
+
+{% endblock %}

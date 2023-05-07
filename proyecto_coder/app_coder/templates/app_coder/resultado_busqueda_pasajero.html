@@ -1,0 +1,45 @@
+
+{% extends "app_coder/padre.html"%}
+{%load static%}
+
+{%block contenidoquecambia %}
+<br>
+<br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Agregar Curso</title>
+</head>
+
+    <h3>
+        <center>
+             A continuación se detalla la información del pasajero:
+            </center>
+        </h3>
+     {% if resultado %} 
+     <ul>
+     {% for resultado in resultado %} 
+     <center><li> Nombre:  {{resultado.pasajero_nombre}}</li>
+        <li> Apellido: {{resultado.pasajero_apellido}}</li>
+        <li> Correo electronico: {{resultado.pasajero_mail}}</li>
+        <li> Fecha de ncimiento: {{resultado.pasajero_fecha_nac}}</li>
+     </center>
+     {% endfor %}
+     </ul>
+     <br>
+    <h3>
+         <center>
+            Viajes registrados
+        </center>
+    </h3>
+     {% for resultado_viajes in resultado_viajes %} 
+        <center><li> 
+            Fecha:  {{resultado_viajes.viajes_fecha_ini}},  Origen: {{resultado_viajes.viajes_origen}},  Destino: {{resultado_viajes.viajes_destino}},  Código de reserva: {{resultado_viajes.viajes_reserva}}</li>
+        </center>
+     {% endfor %}
+     {% endif %}
+
+</html>
+{% endblock %}
